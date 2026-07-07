@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DockIt — Brand Theme Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* ─── Theme definitions ─────────────────────────────────── */
+
+/* DARK THEMES */
+body[data-theme="dockit"] {
+  --bg-primary:#0a0a0a; --bg-secondary:#111111; --bg-tertiary:#1a1a1a;
+  --bg-card:#1f1f1f; --bg-hover:#2a2a2a; --border:#2e2e2e; --border-secondary:#3a3a3a;
+  --text-primary:#ffffff; --text-secondary:#d4d4d4; --text-muted:#737373; --text-disabled:#525252;
+  --accent:#ffffff; --accent-fg:#0a0a0a;
+}
+body[data-theme="ferrari"] {
+  --bg-primary:#181818; --bg-secondary:#1e1e1e; --bg-tertiary:#252525;
+  --bg-card:#303030; --bg-hover:#383838; --border:#303030; --border-secondary:#424242;
+  --text-primary:#ffffff; --text-secondary:#e0e0e0; --text-muted:#969696; --text-disabled:#666666;
+  --accent:#da291c; --accent-fg:#ffffff;
+}
+body[data-theme="bugatti"] {
+  --bg-primary:#000000; --bg-secondary:#0d0d0d; --bg-tertiary:#141414;
+  --bg-card:#141414; --bg-hover:#1f1f1f; --border:#262626; --border-secondary:#3a3a3a;
+  --text-primary:#ffffff; --text-secondary:#cccccc; --text-muted:#999999; --text-disabled:#666666;
+  --accent:#ffffff; --accent-fg:#000000;
+}
+body[data-theme="lamborghini"] {
+  --bg-primary:#000000; --bg-secondary:#0d0d0d; --bg-tertiary:#181818;
+  --bg-card:#202020; --bg-hover:#2a2a2a; --border:#282828; --border-secondary:#383838;
+  --text-primary:#ffffff; --text-secondary:#f5f5f5; --text-muted:#7d7d7d; --text-disabled:#494949;
+  --accent:#FFC000; --accent-fg:#000000;
+}
+body[data-theme="bmw-m"] {
+  --bg-primary:#000000; --bg-secondary:#0d0d0d; --bg-tertiary:#1a1a1a;
+  --bg-card:#1a1a1a; --bg-hover:#262626; --border:#3c3c3c; --border-secondary:#484848;
+  --text-primary:#ffffff; --text-secondary:#e6e6e6; --text-muted:#7e7e7e; --text-disabled:#4a4a4a;
+  --accent:#1c69d4; --accent-fg:#ffffff;
+}
+body[data-theme="shopify"] {
+  --bg-primary:#02090A; --bg-secondary:#061A1C; --bg-tertiary:#102620;
+  --bg-card:#061A1C; --bg-hover:#0d2420; --border:#1E2C31; --border-secondary:#2a3c42;
+  --text-primary:#ffffff; --text-secondary:#D4D4D8; --text-muted:#A1A1AA; --text-disabled:#71717A;
+  --accent:#36F4A4; --accent-fg:#000000;
+}
+body[data-theme="starbucks"] {
+  --bg-primary:#1E3932; --bg-secondary:#243f37; --bg-tertiary:#1a3028;
+  --bg-card:#2a4a42; --bg-hover:#325848; --border:#3a5a50; --border-secondary:#4a6e62;
+  --text-primary:#ffffff; --text-secondary:#e8f5f0; --text-muted:#90b8ae; --text-disabled:#5a8278;
+  --accent:#00754A; --accent-fg:#ffffff;
+}
+body[data-theme="theverge"] {
+  --bg-primary:#131313; --bg-secondary:#1c1c1c; --bg-tertiary:#252525;
+  --bg-card:#2d2d2d; --bg-hover:#363636; --border:#3d3d3d; --border-secondary:#505050;
+  --text-primary:#ffffff; --text-secondary:#e9e9e9; --text-muted:#949494; --text-disabled:#666666;
+  --accent:#3cffd0; --accent-fg:#000000;
+}
+body[data-theme="playstation"] {
+  --bg-primary:#000000; --bg-secondary:#0d0d0d; --bg-tertiary:#121314;
+  --bg-card:#181818; --bg-hover:#1f2024; --border:#1f2024; --border-secondary:#2e2f33;
+  --text-primary:#ffffff; --text-secondary:#cccccc; --text-muted:#6b6b6b; --text-disabled:#444444;
+  --accent:#0070d1; --accent-fg:#ffffff;
+}
+
+/* LIGHT THEMES */
+body[data-theme="nike"] {
+  --bg-primary:#ffffff; --bg-secondary:#f5f5f5; --bg-tertiary:#ebebeb;
+  --bg-card:#ffffff; --bg-hover:#f0f0f0; --border:#e5e5e5; --border-secondary:#cccccc;
+  --text-primary:#111111; --text-secondary:#333333; --text-muted:#707072; --text-disabled:#9e9ea0;
+  --accent:#111111; --accent-fg:#ffffff;
+}
+body[data-theme="tesla"] {
+  --bg-primary:#ffffff; --bg-secondary:#F4F4F4; --bg-tertiary:#eeeeee;
+  --bg-card:#ffffff; --bg-hover:#eaebec; --border:#D0D1D2; --border-secondary:#bebebe;
+  --text-primary:#171A20; --text-secondary:#393C41; --text-muted:#5C5E62; --text-disabled:#8E8E8E;
+  --accent:#3E6AE1; --accent-fg:#ffffff;
+}
+body[data-theme="mastercard"] {
+  --bg-primary:#F3F0EE; --bg-secondary:#FCFBFA; --bg-tertiary:#e8e4e0;
+  --bg-card:#ffffff; --bg-hover:#ede9e5; --border:#D1CDC7; --border-secondary:#b8b4af;
+  --text-primary:#141413; --text-secondary:#262627; --text-muted:#696969; --text-disabled:#b0ada9;
+  --accent:#CF4500; --accent-fg:#ffffff;
+}
+body[data-theme="vodafone"] {
+  --bg-primary:#ffffff; --bg-secondary:#f2f2f2; --bg-tertiary:#e8e8e8;
+  --bg-card:#ffffff; --bg-hover:#f5f5f5; --border:#dddddd; --border-secondary:#c0c0c0;
+  --text-primary:#25282b; --text-secondary:#3f3f3f; --text-muted:#7e7e7e; --text-disabled:#bebebe;
+  --accent:#e60000; --accent-fg:#ffffff;
+}
+body[data-theme="wired"] {
+  --bg-primary:#ffffff; --bg-secondary:#f8f8f8; --bg-tertiary:#f0f0f0;
+  --bg-card:#ffffff; --bg-hover:#f0f2f4; --border:#e2e8f0; --border-secondary:#c8d0da;
+  --text-primary:#1a1a1a; --text-secondary:#333333; --text-muted:#757575; --text-disabled:#999999;
+  --accent:#057dbc; --accent-fg:#ffffff;
+}
+body[data-theme="renault"] {
+  --bg-primary:#ffffff; --bg-secondary:#f7f7f7; --bg-tertiary:#eeeeee;
+  --bg-card:#ffffff; --bg-hover:#f0f0f0; --border:#e0e0e0; --border-secondary:#cccccc;
+  --text-primary:#000000; --text-secondary:#222222; --text-muted:#666666; --text-disabled:#8a8a8a;
+  --accent:#ffed00; --accent-fg:#000000;
+}
+body[data-theme="meta"] {
+  --bg-primary:#ffffff; --bg-secondary:#f1f4f7; --bg-tertiary:#e8ecf0;
+  --bg-card:#ffffff; --bg-hover:#eef0f4; --border:#dee3e9; --border-secondary:#ced0d4;
+  --text-primary:#1c1e21; --text-secondary:#444950; --text-muted:#8595a4; --text-disabled:#bcc0c4;
+  --accent:#0064e0; --accent-fg:#ffffff;
+}
+
+/* ─── Switcher bar ──────────────────────────────────────── */
+
+#switcher {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  display: flex; align-items: center; gap: 0;
+  background: #050505; border-bottom: 1px solid #222;
+  font-family: 'Inter', sans-serif; font-size: 12px;
+  overflow-x: auto; white-space: nowrap;
+  scrollbar-width: none;
+}
+#switcher::-webkit-scrollbar { display: none; }
+
+.sw-group {
+  display: flex; align-items: center; padding: 0 8px; gap: 4px;
+  border-right: 1px solid #222;
+}
+.sw-label {
+  font-size: 9px; color: #444; letter-spacing: 0.08em;
+  text-transform: uppercase; padding-right: 4px;
+  white-space: nowrap;
+}
+
+.theme-btn {
+  padding: 6px 11px; border-radius: 5px; border: 1px solid #2a2a2a;
+  background: #111; color: #777; font-family: 'Inter', sans-serif;
+  font-size: 11px; cursor: pointer; transition: all 100ms; white-space: nowrap;
+  display: flex; align-items: center; gap: 5px;
+}
+.theme-btn:hover { border-color: #444; color: #bbb; background: #1a1a1a; }
+.theme-btn.active {
+  background: var(--btn-bg, #fff); color: var(--btn-fg, #000);
+  border-color: transparent; font-weight: 600;
+}
+.dot {
+  width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+}
+
+/* ─── Base ──────────────────────────────────────────────── */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition: background-color 180ms, color 180ms;
+}
+#mock { padding-top: 40px; }
+
+/* ─── Header ────────────────────────────────────────────── */
+.header {
+  height: 48px; display: flex; align-items: center;
+  padding: 0 1rem; border-bottom: 1px solid var(--border);
+  background: var(--bg-secondary);
+  position: sticky; top: 40px; z-index: 300; gap: 12px;
+  transition: background 180ms, border-color 180ms;
+}
+.header-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; flex: 0 0 auto; }
+.header-logo span { font-size: 15px; font-weight: 600; color: var(--text-primary); letter-spacing: -0.02em; }
+.header-search { flex: 1 1 0; display: flex; justify-content: center; }
+.search-wrap { width: 100%; max-width: 500px; position: relative; }
+.search-icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); opacity: 0.35; font-size: 12px; pointer-events: none; }
+.search-input {
+  width: 100%; padding: 5px 40px 5px 30px;
+  background: var(--bg-tertiary); border: 1px solid var(--border);
+  border-radius: 6px; color: var(--text-primary);
+  font-size: 13px; font-family: inherit; outline: none;
+  transition: background 180ms, border-color 180ms;
+}
+.search-kbd { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: 10px; opacity: 0.35; font-family: monospace; }
+.header-actions { flex: 0 0 auto; display: flex; align-items: center; gap: 8px; }
+.header-btn {
+  background: none; border: 1px solid var(--border); color: var(--text-muted);
+  cursor: pointer; padding: 4px 10px; border-radius: 4px; font-size: 12px; font-family: inherit;
+}
+.header-icon-btn { background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 5px; border-radius: 4px; }
+
+/* ─── Board ─────────────────────────────────────────────── */
+.board-shell { display: flex; flex-direction: column; height: calc(100vh - 88px); }
+.board-topbar {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 20px 8px; border-bottom: 1px solid var(--border);
+  background: var(--bg-secondary);
+  transition: background 180ms, border-color 180ms;
+}
+.board-title { font-size: 15px; font-weight: 600; color: var(--text-primary); letter-spacing: -0.01em; }
+.board-badge {
+  font-size: 11px; color: var(--text-muted); background: var(--bg-tertiary);
+  border: 1px solid var(--border); border-radius: 5px; padding: 1px 7px;
+}
+.add-board-btn {
+  margin-left: auto; padding: 4px 12px;
+  background: var(--accent); color: var(--accent-fg);
+  border: none; border-radius: 6px; font-size: 12px; font-weight: 500;
+  font-family: inherit; cursor: pointer; transition: background 180ms, color 180ms;
+}
+
+/* ─── Kanban ─────────────────────────────────────────────── */
+.kanban-area {
+  flex: 1; overflow-x: auto; overflow-y: hidden;
+  display: flex; align-items: flex-start; gap: 12px; padding: 16px 20px;
+}
+.k-list {
+  width: 260px; flex-shrink: 0; display: flex; flex-direction: column;
+  max-height: calc(100vh - 180px); border: 1px solid var(--border);
+  border-radius: 18px; background: var(--bg-secondary); overflow: hidden;
+  transition: background 180ms, border-color 180ms;
+}
+.k-list-header { display: flex; align-items: center; justify-content: space-between; padding: 8px 10px; }
+.k-list-title { font-size: 13px; font-weight: 500; color: var(--text-primary); flex: 1; }
+.k-list-meta { display: flex; align-items: center; gap: 6px; }
+.k-drag { font-size: 13px; color: var(--text-muted); padding: 0 4px; }
+.k-menu { font-size: 13px; color: var(--text-muted); padding: 0 2px; background: none; border: none; cursor: pointer; }
+.k-count { font-size: 11px; color: var(--text-muted); font-family: monospace; margin-left: 4px; }
+.k-cards { flex: 1; overflow-y: auto; padding: 4px 0; display: flex; flex-direction: column; gap: 4px; min-height: 40px; }
+.k-card-wrap { padding: 0 6px; }
+.k-card {
+  position: relative; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: 12px;
+  padding: 10px 12px; cursor: grab;
+  transition: background 180ms, border-color 180ms;
+}
+.k-card:hover { background: var(--bg-hover); border-color: var(--border-secondary); }
+.k-card-title { font-size: 13px; color: var(--text-primary); line-height: 1.4; margin-bottom: 6px; }
+.k-card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+.k-tag {
+  font-size: 10px; padding: 2px 6px; background: var(--bg-tertiary);
+  border: 1px solid var(--border); border-radius: 5px; color: var(--text-muted);
+  transition: background 180ms, border-color 180ms;
+}
+.k-card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 4px; }
+.k-card-meta { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--text-muted); }
+.k-card-meta .ov { color: var(--text-primary); }
+.p-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.k-add-area { background: transparent; padding: 6px; }
+.k-add-btn {
+  width: 100%; padding: 5px 0; background: none; border: none;
+  color: var(--text-muted); font-size: 12px; cursor: pointer;
+  text-align: left; font-family: inherit;
+}
+.add-col-btn {
+  width: 44px; height: 44px; flex-shrink: 0; background: var(--bg-secondary);
+  border: 1px dashed var(--border); border-radius: 14px; color: var(--text-muted);
+  font-size: 20px; font-weight: 300; cursor: pointer; align-self: flex-start;
+  display: flex; align-items: center; justify-content: center; margin-top: 2px;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-secondary); border-radius: 3px; }
+
+/* ─── Label ─────────────────────────────────────────────── */
+#theme-label {
+  position: fixed; bottom: 16px; right: 20px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 8px 14px; font-size: 12px;
+  color: var(--text-muted); font-family: 'Inter', sans-serif; z-index: 1000;
+  pointer-events: none; transition: background 180ms, border-color 180ms;
+}
+#theme-label strong { color: var(--text-primary); }
+#theme-label em { font-style: normal; font-size: 10px; opacity: 0.6; }
+
+</style>
+</head>
+<body data-theme="dockit">
+
+<!-- ─── Switcher ─────────────────────────────────────────── -->
+<div id="switcher">
+
+  <div class="sw-group">
+    <span class="sw-label">Base</span>
+    <button class="theme-btn active" data-theme="dockit" data-name="Current DockIt" data-mode="dark"
+      style="--btn-bg:#2a2a2a;--btn-fg:#fff;" onclick="sw(this)">
+      <span class="dot" style="background:#3a3a3a"></span>DockIt
+    </button>
+  </div>
+
+  <div class="sw-group">
+    <span class="sw-label">Auto — dark</span>
+    <button class="theme-btn" data-theme="ferrari" data-name="Ferrari" data-mode="dark"
+      style="--btn-bg:#da291c;--btn-fg:#fff;" onclick="sw(this)">
+      <span class="dot" style="background:#da291c"></span>Ferrari
+    </button>
+    <button class="theme-btn" data-theme="bugatti" data-name="Bugatti" data-mode="dark"
+      style="--btn-bg:#333;--btn-fg:#fff;" onclick="sw(this)">
+      <span class="dot" style="background:#555"></span>Bugatti
+    </button>
+    <button class="theme-btn" data-theme="lamborghini" data-name="Lamborghini" data-mode="dark"
+      style="--btn-bg:#FFC000;--btn-fg:#000;" onclick="sw(this)">
+      <span class="dot" style="background:#FFC000"></span>Lambo
+    </button>
+    <button class="theme-btn" data-theme="bmw-m" data-name="BMW M" data-mode="dark"
+      style="--btn-bg:#1c69d4;--btn-fg:#fff;" onclick="sw(this)">
+      <span class="dot" style="background:#1c69d4"></span>BMW M
+    </button>
+  </div>
+
+  <div class="sw-group">
+    <span class="sw-label">Tech — dark</span>
+    <button class="theme-btn" data-theme="shopify" data-name="Shopify" data-mode="dark"
+      style="--btn-bg:#36F4A4;--btn-fg:#000;" onclick="sw(this)">
+      <span class="dot" style="background:#36F4A4"></span>Shopify
+    </button>
+    <button class="theme-btn" data-theme="starbucks" data-name="Starbucks" data-mode="dark"
+      style="--btn-bg:#00754A;--btn-fg:#fff;" onclick="sw(this)">
+      <span class="dot" style="background:#00754A"></span>Starbucks
+    </button>
+    <button class="theme-btn" data-theme="theverge" data-name="The Verge" data-mode="dark"
+      style="--btn-bg:#3cffd0;--btn-fg:#000;" onclick="sw(this)">
+      <span class="dot" style="background:#3cffd0"></span>The Verge
+    </button>
+    <button class="theme-btn" data-theme="playstation" data-name="PlayStation" data-mode="dark"
+      style="--btn-bg:#0070d1;--btn-fg:#fff;" onclick="sw(this)">
+      <span class="dot" style="background:#0070d1"></span>PlayStation
+    </button>
+  </div>
+
+  <div class="sw-group">
+    <span class="sw-label">Light</span>
+    <button class="theme-btn" data-theme="nike" data-name="Nike" data-mode="light"
+      style="--btn-bg:#111;--btn-fg:#fff;" onclick="sw(this)">
+      <span class="dot" style="background:#111;border:1px solid #555"></span>Nike
+    </button>
+    <button class="theme-btn" data-theme="tesla" data-name="Tesla" data-mode="light"
+      style="--btn-bg:#3E6AE1;--btn-fg:#fff;" onclick="sw(this)">
+      <span class="dot" style="background:#3E6AE1"></span>Tesla
+    </button>
+    <button class="theme-btn" data-theme="mastercard" data-name="Mastercard" data-mode="light"
+      style="--btn-bg:#CF4500;--btn-fg:#fff;" onclick="sw(this)">
+      <span class="dot" style="background:#CF4500"></span>Mastercard
+    </button>
+    <button class="theme-btn" data-theme="vodafone" data-name="Vodafone" data-mode="light"
+      style="--btn-bg:#e60000;--btn-fg:#fff;" onclick="sw(this)">
+      <span class="dot" style="background:#e60000"></span>Vodafone
+    </button>
+    <button class="theme-btn" data-theme="wired" data-name="WIRED" data-mode="light"
+      style="--btn-bg:#057dbc;--btn-fg:#fff;" onclick="sw(this)">
+      <span class="dot" style="background:#057dbc"></span>WIRED
+    </button>
+    <button class="theme-btn" data-theme="renault" data-name="Renault" data-mode="light"
+      style="--btn-bg:#ffed00;--btn-fg:#000;" onclick="sw(this)">
+      <span class="dot" style="background:#ffed00"></span>Renault
+    </button>
+    <button class="theme-btn" data-theme="meta" data-name="Meta" data-mode="light"
+      style="--btn-bg:#0064e0;--btn-fg:#fff;" onclick="sw(this)">
+      <span class="dot" style="background:#0064e0"></span>Meta
+    </button>
+  </div>
+
+</div>
+
+<!-- ─── DockIt UI ─────────────────────────────────────────── -->
+<div id="mock">
+  <header class="header">
+    <a class="header-logo" href="#">
+      <svg width="20" height="20" viewBox="0 0 48 48" fill="none">
+        <rect x="16" y="10" width="22" height="15" rx="2.5" stroke="#555" stroke-width="1.5"/>
+        <rect x="12" y="16" width="22" height="15" rx="2.5" stroke="#999" stroke-width="1.5"/>
+        <rect x="8" y="22" width="22" height="15" rx="2.5" stroke="#e0e0e0" stroke-width="1.5" fill="#1a1a1a"/>
+        <line x1="13" y1="28" x2="25" y2="28" stroke="#e0e0e0" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="13" y1="32" x2="22" y2="32" stroke="#666" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+      <span>DockIt</span>
+    </a>
+    <div class="header-search">
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input class="search-input" placeholder="Search boards, cards..." readonly>
+        <kbd class="search-kbd">⌘K</kbd>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="header-icon-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <button class="header-btn">Sign out</button>
+    </div>
+  </header>
+
+  <div class="board-shell">
+    <div class="board-topbar">
+      <div class="board-title">Product Roadmap</div>
+      <div class="board-badge">7 cards</div>
+      <button class="add-board-btn">+ Add card</button>
+    </div>
+
+    <div class="kanban-area">
+
+      <!-- Backlog -->
+      <div class="k-list">
+        <div class="k-list-header">
+          <span class="k-list-title">Backlog</span>
+          <div class="k-list-meta">
+            <span class="k-drag">⠿</span><span class="k-menu">···</span><span class="k-count">3</span>
+          </div>
+        </div>
+        <div class="k-cards">
+          <div class="k-card-wrap"><div class="k-card">
+            <div class="k-card-title">Set up CI/CD pipeline</div>
+            <div class="k-card-footer">
+              <div class="k-card-meta"><span class="ov">Apr 30</span></div>
+              <span class="p-dot" style="background:#ef4444"></span>
+            </div>
+          </div></div>
+          <div class="k-card-wrap"><div class="k-card">
+            <div class="k-card-title">Write API documentation</div>
+            <div class="k-card-tags"><span class="k-tag">docs</span><span class="k-tag">api</span></div>
+            <div class="k-card-footer">
+              <div class="k-card-meta"><span>✓ 1/3</span><span>💬 2</span></div>
+            </div>
+          </div></div>
+          <div class="k-card-wrap"><div class="k-card">
+            <div class="k-card-title">Add dark mode toggle</div>
+            <div class="k-card-tags"><span class="k-tag">ui</span></div>
+            <div class="k-card-footer">
+              <div class="k-card-meta"></div>
+              <span class="p-dot" style="background:#f59e0b"></span>
+            </div>
+          </div></div>
+        </div>
+        <div class="k-add-area"><button class="k-add-btn">+ Add card</button></div>
+      </div>
+
+      <!-- In Progress -->
+      <div class="k-list">
+        <div class="k-list-header">
+          <span class="k-list-title">In Progress</span>
+          <div class="k-list-meta">
+            <span class="k-drag">⠿</span><span class="k-menu">···</span><span class="k-count">2</span>
+          </div>
+        </div>
+        <div class="k-cards">
+          <div class="k-card-wrap"><div class="k-card">
+            <div class="k-card-title">Build user authentication</div>
+            <div class="k-card-tags"><span class="k-tag">auth</span><span class="k-tag">backend</span></div>
+            <div class="k-card-footer">
+              <div class="k-card-meta"><span class="ov">May 1</span><span>💬 5</span></div>
+              <span class="p-dot" style="background:#ef4444"></span>
+            </div>
+          </div></div>
+          <div class="k-card-wrap"><div class="k-card">
+            <div class="k-card-title">Design onboarding flow</div>
+            <div class="k-card-tags"><span class="k-tag">design</span><span class="k-tag">ux</span></div>
+            <div class="k-card-footer">
+              <div class="k-card-meta"><span>✓ 2/5</span></div>
+              <span class="p-dot" style="background:#f59e0b"></span>
+            </div>
+          </div></div>
+        </div>
+        <div class="k-add-area"><button class="k-add-btn">+ Add card</button></div>
+      </div>
+
+      <!-- Review -->
+      <div class="k-list">
+        <div class="k-list-header">
+          <span class="k-list-title">Review</span>
+          <div class="k-list-meta">
+            <span class="k-drag">⠿</span><span class="k-menu">···</span><span class="k-count">1</span>
+          </div>
+        </div>
+        <div class="k-cards">
+          <div class="k-card-wrap"><div class="k-card">
+            <div class="k-card-title">Notification service MVP</div>
+            <div class="k-card-tags"><span class="k-tag">backend</span></div>
+            <div class="k-card-footer">
+              <div class="k-card-meta"><span>💬 1</span><span>✓ 3/3</span></div>
+            </div>
+          </div></div>
+        </div>
+        <div class="k-add-area"><button class="k-add-btn">+ Add card</button></div>
+      </div>
+
+      <!-- Done -->
+      <div class="k-list">
+        <div class="k-list-header">
+          <span class="k-list-title">Done</span>
+          <div class="k-list-meta">
+            <span class="k-drag">⠿</span><span class="k-menu">···</span><span class="k-count">2</span>
+          </div>
+        </div>
+        <div class="k-cards">
+          <div class="k-card-wrap"><div class="k-card">
+            <div class="k-card-title">Initialize project structure</div>
+            <div class="k-card-footer">
+              <div class="k-card-meta"></div>
+              <span class="p-dot" style="background:#22c55e"></span>
+            </div>
+          </div></div>
+          <div class="k-card-wrap"><div class="k-card">
+            <div class="k-card-title">Database schema v1</div>
+            <div class="k-card-tags"><span class="k-tag">database</span></div>
+            <div class="k-card-footer">
+              <div class="k-card-meta"><span>✓ 4/4</span></div>
+            </div>
+          </div></div>
+        </div>
+        <div class="k-add-area"><button class="k-add-btn">+ Add card</button></div>
+      </div>
+
+      <button class="add-col-btn" title="Add list">+</button>
+    </div>
+  </div>
+</div>
+
+<div id="theme-label">
+  <strong id="tname">Current DockIt</strong> &nbsp;<em id="tmode">dark</em>
+</div>
+
+<script>
+function sw(btn) {
+  document.body.dataset.theme = btn.dataset.theme;
+  document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tname').textContent = btn.dataset.name;
+  document.getElementById('tmode').textContent = btn.dataset.mode + '-mode';
+}
+</script>
+</body>
+</html>
